@@ -115,7 +115,7 @@ async function sendAuthentication(res, user) {
 
 const reqPwdReset = async (req, res) => {
   const { email } = req.body;
-  const user = await userService.findByEmail(email);
+  const user = await userService.getByEmail(email);
 
   const errors = {
     email:
