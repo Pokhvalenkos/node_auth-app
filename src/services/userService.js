@@ -46,7 +46,8 @@ async function register({ email, password, name }) {
 
 async function reqPwdReset(email) {
   const pwdResetToken = uuidv4();
-  const user = await findByEmail(email);
+  const user = await getByEmail(email);
+
   user.pwdResetToken = pwdResetToken;
   await user.save();
   emailService.sendResetEmail(email, pwdResetToken);
@@ -82,6 +83,8 @@ export const userService = {
   normalize,
   getByEmail,
   register,
+  reqPwdReset,
+  update,
 };
 
 uuidv4();

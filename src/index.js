@@ -23,8 +23,6 @@ app.use(authRouter);
 app.use('/users', userRouter);
 app.use(errorMiddleware);
 
-console.log("Loaded SMTP_HOST:", process.env.SMTP_HOST);
-
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Server is running at http://localhost:${PORT}`);

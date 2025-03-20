@@ -10,8 +10,6 @@ import { authService } from '../services/authService.js';
 async function register(req, res, next) {
   const { name, email, password } = req.body;
 
-  console.log('Request body:', req.body);
-
   const errors = {
     name: authService.validateName(name),
     email: authService.validateEmail(email),
@@ -36,6 +34,7 @@ async function activate(req, res, next) {
 
   if (!user) {
     res.sendStatus(404);
+
     return;
   }
 

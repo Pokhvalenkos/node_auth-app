@@ -5,10 +5,11 @@ export function errorMiddleware(error, req, res, next) {
     const { status, message, errors } = error;
 
     res.status(status).send({ message, errors });
+
     return;
   }
 
-  console.log(error);
+  console.log(error); // eslint-disable-line no-console
 
   res.status(500).send({
     message: 'Unexpected error',

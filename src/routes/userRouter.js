@@ -10,3 +10,15 @@ userRouter.get(
   catchError(authMiddleware),
   catchError(userController.getAll),
 );
+
+userRouter.get(
+  '/:userId',
+  catchError(authMiddleware),
+  catchError(userController.getOne),
+);
+
+userRouter.patch(
+  '/:userId',
+  catchError(authMiddleware),
+  catchError(userController.update),
+);

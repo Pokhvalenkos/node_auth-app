@@ -1,4 +1,6 @@
-import { userService } from '../services/userService.js';
+import { userService, authService } from '../services/userService.js';
+import { ApiError } from '../exceptions/ApiError.js';
+import bcrypt from 'bcrypt';
 
 async function getAll(req, res, next) {
   const users = await userService.getAllActive();
